@@ -10,7 +10,7 @@ export default class Core {
     constructor(config) {
         this._getUrlParams();
 
-        VK.init(function () {
+        VK.init(() => {
             this.app = new Vue({
                 el: '#app',
                 data: config
@@ -21,7 +21,7 @@ export default class Core {
             }, (response) => {
                 debugger;
             });
-        }, function () {}, '5.92');
+        }, () => {}, '5.92');
     }
 
     _getUrlParams() {
@@ -31,7 +31,7 @@ export default class Core {
 
         this.params = {};
 
-        loopObj(queryParams, (value, key) => {
+        loopObj(queryParams, (value) => {
             let split = value.split('=');
 
             this.params[split[0]] = split[1];
