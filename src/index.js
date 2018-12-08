@@ -1,10 +1,9 @@
 'use strict';
 
 import './scss/main.scss';
-import App from './js/app.js';
+import Config from './js/config';
+import Core from './js/core.js';
 
 window.onload = () => {
-    console.log('ready');
-
-    let app = new App();
+    let app = new Core(Config);
 };
