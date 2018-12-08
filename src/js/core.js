@@ -17,11 +17,9 @@ const FIELDS = `
 Vue.component('app-user', {
     props: ['img', 'name', 'age'],
     template: `
-        <div>
-            <div class="app-user-ava"><img src="{{img}}></div>
-            <div class="app-user-name">{{ name }}</div>
-            <div class="user-age">{{ age }} лет</div>
-        </div>
+        <div class="app-user-ava"><img src="{{ img }}"></div>
+        <div class="app-user-name">{{ name }}</div>
+        <div class="user-age">{{ age }} лет</div>
     `
 });
 
