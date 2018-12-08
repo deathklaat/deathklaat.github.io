@@ -30,21 +30,23 @@ export default class Core {
         VK.init(() => {
             VK.api('friends.get', {
                 user_id: this.params.viewer_id
-            }, (data) => {
+            }, (data = {}) => {
                 VK.api('users.get', {
                     user_ids: data.response.items.join(','),
                     fields: FIELDS
-                }, (response) => {
+                }, (response = {}) => {
                     if (response.error) {
                         return false;
                     }
 
-                    this.app = new Vue({
-                        el: '#app',
-                        data: {
-                            users: response.response
-                        }
-                    });
+                    if (response && response.response) {
+                        this.app = new Vue({
+                            el: '#app',
+                            data: {
+                                users: response.response
+                            }
+                        });
+                    }
                 })
             });
         }, () => {
