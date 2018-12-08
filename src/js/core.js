@@ -19,7 +19,11 @@ export default class Core {
             VK.api('friends.get', {
                 user_id: this.params.viewer_id
             }, (response) => {
-                debugger;
+                VK.api('users.get', {
+                    user_ids: response.items.join(',')
+                }, (response) => {
+                    debugger;
+                })
             });
         }, () => {}, '5.92');
     }
