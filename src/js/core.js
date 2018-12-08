@@ -9,18 +9,16 @@ const loopObj = (obj, callback) => {
 const FIELDS = `
     first_name,
     last_name,
-    age,
     photo_50,
     city
 `;
 
 Vue.component('app-user', {
-    props: ['img', 'name', 'age'],
+    props: ['first_name', 'last_name', 'photo_50'],
     template: `
         <div>
-            <div class="app-user_ava"><img src="{{ img }}"></div>
-            <div class="app-user_name">{{ name }}</div>
-            <div class="app-user_age">{{ age }} лет</div>
+            <div class="app-user_ava"><img src="{{ photo_50 }}"></div>
+            <div class="app-user_name">{{ first_name + last_name }}</div>
         </div>
     `
 });
