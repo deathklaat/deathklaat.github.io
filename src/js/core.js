@@ -42,6 +42,7 @@ export default class Core {
                     }
 
                     if (response && response.response) {
+                        debugger;
                         this.app = new Vue({
                             el: '#app',
                             data: {
