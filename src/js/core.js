@@ -31,7 +31,6 @@ export default class Core {
             VK.api('friends.get', {
                 user_id: this.params.viewer_id
             }, (data) => {
-                debugger;
                 VK.api('users.get', {
                     user_ids: data.response.items.join(','),
                     fields: FIELDS
