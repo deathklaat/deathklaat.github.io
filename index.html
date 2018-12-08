@@ -9,8 +9,10 @@
 <body>
 
 <div class="app" id="app">
-    <div class="users-wraps" v-for="user in users">
-        <app-user :name="user.first_name + user.last_name" img="user.photo_50" age="user.age"></app-user>
+    <div class="users-wrap">
+        <app-user v-for="user in users" :name="user.first_name + user.last_name" img="user.photo_50"
+                  age="user.age">
+        </app-user>
     </div>
 </div>
 
