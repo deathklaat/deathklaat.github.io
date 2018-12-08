@@ -18,10 +18,10 @@ export default class Core {
 
             VK.api('friends.get', {
                 user_id: this.params.viewer_id
-            }, (response) => {
+            }, (data) => {
                 debugger;
                 VK.api('users.get', {
-                    user_ids: response.items.join(',')
+                    user_ids: data.response.items.join(',')
                 }, (response) => {
                     debugger;
                 })
