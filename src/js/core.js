@@ -10,16 +10,18 @@ export default class Core {
     constructor(config) {
         this._getUrlParams();
 
-        VK.init(function() {
-            debugger;
-        }, function() {
-            debugger;
-        }, '5.92');
+        VK.init(function () {
+            this.app = new Vue({
+                el: '#app',
+                data: config
+            });
 
-        this.app = new Vue({
-            el: '#app',
-            data: config
-        });
+            VK.api('friends.get', {
+                user_id: this.params.viewer_id
+            }, (response) => {
+                debugger;
+            });
+        }, function () {}, '5.92');
     }
 
     _getUrlParams() {
