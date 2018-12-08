@@ -6,18 +6,28 @@ const loopObj = (obj, callback) => {
     });
 };
 
-const FIELDS = 'photo_50,city,verified';
+const FIELDS = `
+    first_name,
+    last_name,
+    age,
+    photo_50,
+    city
+`;
+
+Vue.component('app-user', {
+    props: ['img', 'name', 'age'],
+    template: `
+        <div class="app-user-ava"><img src="{{img}}></div>
+        <div class="app-user-name">{{ name }}</div>
+        <div class="user-age">{{ age }} лет</div>
+    `
+});
 
 export default class Core {
     constructor(config) {
         this._getUrlParams();
 
         VK.init(() => {
-            this.app = new Vue({
-                el: '#app',
-                data: config
-            });
-
             VK.api('friends.get', {
                 user_id: this.params.viewer_id
             }, (data) => {
@@ -26,10 +36,20 @@ export default class Core {
                     user_ids: data.response.items.join(','),
                     fields: FIELDS
                 }, (response) => {
-                    debugger;
+                    if (response.error) {
+                        return false;
+                    }
+
+                    this.app = new Vue({
+                        el: '#app',
+                        data: {
+                            users: response.response
+                        }
+                    });
                 })
             });
-        }, () => {}, '5.92');
+        }, () => {
+        }, '5.92');
     }
 
     _getUrlParams() {
