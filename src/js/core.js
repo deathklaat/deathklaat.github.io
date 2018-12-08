@@ -6,6 +6,8 @@ const loopObj = (obj, callback) => {
     });
 };
 
+const FIELDS = 'photo_50,city,verified';
+
 export default class Core {
     constructor(config) {
         this._getUrlParams();
@@ -21,7 +23,8 @@ export default class Core {
             }, (data) => {
                 debugger;
                 VK.api('users.get', {
-                    user_ids: data.response.items.join(',')
+                    user_ids: data.response.items.join(','),
+                    fields: FIELDS
                 }, (response) => {
                     debugger;
                 })
