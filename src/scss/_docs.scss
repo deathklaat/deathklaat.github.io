@@ -1,0 +1,136 @@
+@import 'mixins';
+
+body {
+    background: #fdfdfd;
+
+    * {
+        color: #353535;
+    }
+}
+
+.outer-block {
+    text-align: left;
+}
+
+.date-text {
+    color: #8b8b8b;
+}
+
+.text {
+    text-align: justify;
+}
+
+.close {
+    background: #353535;
+    border-radius: 50%;
+    border-color: #fff;
+    box-shadow: 0 6px 19px 0 rgba(0, 0, 0, .1);
+    background-size: 100% 100%;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .ico {
+        background: url(../assets/ico-close.png) 0 0 no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        background-size: 100% 100%;
+    }
+
+    .close {
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(110%);
+        }
+
+        &:hover:active {
+            filter: brightness(90%);
+        }
+    }
+}
+
+@media (min-width: 320px) {
+    .outer-block {
+        padding-bottom: calculateRem(100px);
+    }
+
+    .header-text {
+        font-size: calculateRem(26px);
+        padding-top: calculateRem(37px);
+    }
+
+    .date-text {
+        margin-top: calculateRem(17px);
+        font-size: calculateRem(14px);
+    }
+
+    .text {
+        margin-top: calculateRem(31px);
+    }
+
+    .text {
+        font-size: calculateRem(16px);
+    }
+
+    .close {
+        width: calculateRem(36px);
+        height: calculateRem(36px);
+        border: calculateRem(8px) solid #fff;
+        margin: calculateRem(25px) auto calculateRem(18px);
+
+        .ico {
+            width: calculateRem(21px);
+            height: calculateRem(21px);
+            margin: calculateRem(-1px) 0 0 calculateRem(-2px);
+        }
+    }
+}
+
+@media (min-width: 576px) {
+    .outer-block {
+        padding-bottom: calculateRem(200px);
+    }
+
+    .header-text {
+        font-size: calculateRem(45px);
+        padding-top: calculateRem(54px);
+    }
+
+    .date-text {
+        margin-top: calculateRem(34px);
+        font-size: calculateRem(28px);
+    }
+
+    .text {
+        margin-top: calculateRem(63px);
+    }
+
+    .text {
+        font-size: calculateRem(28px);
+    }
+
+    .close {
+        width: calculateRem(75px);
+        height: calculateRem(75px);
+        border: calculateRem(15px) solid #fff;
+        margin: calculateRem(50px) auto calculateRem(34px);
+
+        .ico {
+            width: calculateRem(38px);
+            height: calculateRem(38px);
+            margin: calculateRem(-1px) 0 0 calculateRem(-1px);
+        }
+    }
+}
